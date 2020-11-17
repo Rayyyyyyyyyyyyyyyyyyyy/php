@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-11-15 09:50:25
+-- 產生時間： 2020-11-17 07:13:58
 -- 伺服器版本： 10.4.14-MariaDB
--- PHP 版本： 7.4.11
+-- PHP 版本： 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -87,7 +87,9 @@ INSERT INTO `job` (`id`, `name`) VALUES
 (48, '鐵龜銷售員'),
 (49, '信仰主管'),
 (50, '華麗設計'),
-(51, '我是誰我在哪');
+(51, '我是誰我在哪'),
+(52, '鬍子調酒師'),
+(53, '幻影旅團團長');
 
 --
 -- 已傾印資料表的索引
@@ -107,7 +109,7 @@ ALTER TABLE `job`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `job`
 --
 ALTER TABLE `job`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

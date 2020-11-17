@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-11-15 09:50:19
+-- 產生時間： 2020-11-17 07:13:30
 -- 伺服器版本： 10.4.14-MariaDB
--- PHP 版本： 7.4.11
+-- PHP 版本： 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -174,7 +174,8 @@ INSERT INTO `photo` (`id`, `name`) VALUES
 (135, '61.jpg'),
 (136, '61.jpg'),
 (137, '61.jpg'),
-(138, '61.jpg');
+(138, '61.jpg'),
+(139, '9743_2.jpg');
 
 --
 -- 已傾印資料表的索引
@@ -194,7 +195,7 @@ ALTER TABLE `photo`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

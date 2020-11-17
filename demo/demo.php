@@ -8,7 +8,10 @@ if(!isset($_GET["page"])){
 }
 
 
-$member_page=5;
+    $member_page=5;
+
+
+
 $start=($page-1)*$member_page;
 
 
@@ -100,7 +103,11 @@ function birthday($mydate){
     $age=date('Y')-$by-1;
     if ($cm>$bm || $cm==$bm && $cd>$bd) $age++;
     return $age;
-} ?>
+}
+
+
+
+?>
 
 <!doctype html>
 <html lang="en">
@@ -200,27 +207,35 @@ function birthday($mydate){
                             ?> >
                   
                             <button type="submit" class="btn btn-primary my-1 mx-2">搜尋</button> 
-                         
-                        
-                            
+
                         </form>
                          
                     </div>
                         
                 </header>
-                <div id="search_result"></div>
+
             <span id="change">
                 <div class="d-flex justify-content-between" style="margin-bottom:15px;   height: 40px; ">
 
                     <div class="d-flex">
-                            <input type="submit" name="button"  class="new btn" id="get_new" onclick="newmember()" value="新增">
-                    
+
+                        <input type="submit" name="button"  class="new btn" id="get_new" onclick="newmember()" value="新增">
+
+
+
+
+
+
                         <form action="do_delete.php" id="form_multi_delete" method="post">
                             <input type="hidden" name="originPage" value="<?=$_SERVER['REQUEST_URI']?>">
                             <button type="submit" class="del btn" id="multi_delete" onclick="return confirm('確定要進行批次刪除？')">刪除</button>
                         </form>
+                        <button id="testBtn" class="btn" onclick="check(this)" value="全選">全選</button>
+
                     </div>
-                    
+                    <div>
+
+                    </div>
              
                 </div>
                 
@@ -257,13 +272,12 @@ function birthday($mydate){
                             
                                     <th class="align-middle px-0">
                                         
-                                        <input name="delete_id[]" id="<?=$row["id"]?>" form="form_multi_delete" type="checkbox" value="<?=$row["id"]?>" 
-                                        <?php
-                                            if($row["valid"]==0) echo "disabled";
-                                        ?>>
+                                        <input name="delete_id[]" id="chekBox<?=$row["id"]?>" class="check" form="form_multi_delete" type="checkbox" value="<?=$row["id"]?>">
                                         <label for="<?=$row["id"]?>" style="margin:0 5px"><?=$row["id"]?></label>
+
                                 
                                     </th>
+
 
 
 
@@ -363,14 +377,22 @@ function birthday($mydate){
                     <div class="row">
 
                         <ul>
-                        <li class="form-group">
-                            <small id="passwordHelpInline" class="text-muted">
+
+
+                            <li class="form-group">
+                            <small class="text-muted">
                                 大頭照
                             </small>
+                             <div class="photobox">
+                              <img src="" id="preview" alt="">
+                            </div>
                             <div class="form-group">
-                                <input type="file" name="myFile">
+
+                                <input type="file" name="myFile" id="upload">
                             </div>
                             </li>
+                        </ul>
+                        <ul>
                             <li class="form-group">
                                 <label for="name">姓名</label>
                                 <input type="text" class="form-control" name="name" id="name" value="" required>
@@ -438,18 +460,47 @@ function birthday($mydate){
 
     }
 
+    function changeDESC(target) {
+        let targetCB = document.getElementById('check'+target);
+        targetCB.checked = true;
+        $('#urlForm').submit();
+    }
+
+
+
+    function check() {
+        let colle = document.getElementsByClassName("check");
+
+        let btn = document.getElementById('testBtn');
+        if(btn.innerHTML=="全選"){
+            btn.innerHTML="取消";
+        }else{
+            btn.innerHTML="全選";
+        }
+        Array.from(colle).forEach(child => {
+                if(child.checked == false){
+                    child.checked = true
+                }else{
+                    child.checked = false
+                }
+            }
+        )
+    }
 
 </script>
-<!-- <script>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script>
+                $(function() {
 
-Array.from(cloneSelect.children).forEach( child =>{
-                if(child.innerText.match(searchStr)){
-                    filterSelect.appendChild(child.cloneNode(true));
-                 }
-            })
-</script> -->
+                    $('#upload').change(function() {
+                        var f = document.getElementById('upload').files[0];
+                        var src = window.URL.createObjectURL(f);
+                        document.getElementById('preview').src = src;
+                    });
 
-   
+                });
+            </script>
+
 
 </body>
 </html>
