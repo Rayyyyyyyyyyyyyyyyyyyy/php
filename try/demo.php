@@ -290,6 +290,9 @@
             </tbody>
         </table>
 
+
+
+
             <div class="d-flex justify-content-end">
                 <button type="button" class="new btn" id="new" onclick="getnew('update.php')">新增</button>
                 <button type="button" class="del btn" id="del">刪除</button>

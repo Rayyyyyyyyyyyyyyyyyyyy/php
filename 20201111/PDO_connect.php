@@ -2,7 +2,7 @@
 header("Content-Type: text/html; charset=utf-8");
 $db_host="localhost";
 $db_username="root";
-$db_password="sl0c1219";
+$db_password="123456";
 $db_name="example";
 
 try{

@@ -2,7 +2,7 @@
     <?php 
         $servername = "localhost";
         $username = "root";
-        $password = "sl0c1219";
+        $password = "123456";
         $dbname = "test";
 
         try {
